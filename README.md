@@ -1,11 +1,11 @@
-# go-google-ddns-updater
+# google-ddns-updater
 GoLang Google Domains Dynamic DNS Update Client
 
 ## Summary
 
-go-google-ddns-updater is a client, writen in Go, for updating Google Domains dynamic DNS records via the Google Domains API. See Google documentation for API usage and other details: <a href="https://support.google.com/domains/answer/6147083?hl=en">https://support.google.com/domains/answer/6147083?hl=en</a>
+google-ddns-updater is a client, writen in Go, for updating Google Domains dynamic DNS records via the Google Domains API. See Google documentation for API usage and other details: <a href="https://support.google.com/domains/answer/6147083?hl=en">https://support.google.com/domains/answer/6147083?hl=en</a>
 
-go-google-ddns-updater will compare the current external IP address as obtained from http://myexternalip.com, with the currently resolving IP address of the DNS record. If they are identical, no further action is taken other than logging. If they differ, an authenticated request is sent to the Google Domains API to update the record, with logging of the request response and status.
+ggoogle-ddns-updater will compare the current external IP address as obtained from http://myexternalip.com, with the currently resolving IP address of the DNS record. If they are identical, no further action is taken other than logging. If they differ, an authenticated request is sent to the Google Domains API to update the record, with logging of the request response and status.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ go-google-ddns-updater will compare the current external IP address as obtained 
 - Clone this repository
 - Build the binary for your architecture:  <code>go build</code>
 - Set environment variables for GOOG_DDNS_HOSTNAME, GOOG_DDNS_USERNAME, & GOOG_DDNS_PASSWORD
-- Run go-google-ddns-updater
+- Run google-ddns-updater
 
 
 ## To-Do
