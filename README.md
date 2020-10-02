@@ -30,4 +30,5 @@ ggoogle-ddns-updater will compare the current external IP address as obtained fr
 
  - [ ] Improve logging
  - [ ] Add better code comments
+ - [ ] Versioning
  - [ ] Create Helm chart
