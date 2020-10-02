@@ -34,7 +34,7 @@ jobs:
         with:
           push: true
           platforms: linux/arm/v7
-          tags: clayshek/google-ddns-updater:latest
+          tags: ghcr.io/clayshek/google-ddns-updater:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
