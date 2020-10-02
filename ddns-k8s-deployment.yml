@@ -1,0 +1,46 @@
+# Kubernetes deployment file for Google DDNS Updater
+# Creates secrets which are accessed as environment variables
+# within a pod, launched (hourly) as a Kubernetes CronJob
+
+# Secrets:
+apiVersion: v1
+kind: Secret
+metadata:
+  name: googddnssecret
+type: Opaque
+stringData:
+  hostname: CHANGEME
+  username: CHANGEME
+  password: CHANGEME
+---
+# CronJob Definition:
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: google-ddns-updater
+spec:
+  schedule: "@hourly"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: google-ddns-updater
+            image: ghcr.io/clayshek/google-ddns-updater
+            env:
+              - name: GOOG_DDNS_HOSTNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: googddnssecret
+                    key: hostname
+              - name: GOOG_DDNS_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: googddnssecret
+                    key: username
+              - name: GOOG_DDNS_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: googddnssecret
+                    key: password
+          restartPolicy: OnFailure
